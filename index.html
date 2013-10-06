@@ -8,7 +8,6 @@
   <style type="text/css">
     html {
       padding: 50px;
-      overflow: hidden;
     }
 
     body {
@@ -42,6 +41,7 @@
 
     ul {
       list-style-type: none;
+      padding: 0;
     }
 
     .projects {
@@ -58,11 +58,51 @@
       left: 10px;
       z-index: -1;
     }
+
+    .about {
+      display: none;
+      width: 600px;
+      padding: 20px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.5);
+    }
+
+    .about a {
+      color: #36a;
+    }
+
+    .separator {
+      font-size: 600%;
+    }
+
   </style>
 </head>
 <body>
   <h1>David Guttman</h1>
   <h2>Organizer, Maker of Things, CTO</h2>
+
+  <div class="about">
+    <p>
+      Hi. I'm David Guttman, and I'm passionate about creating interesting things.
+    </p>
+
+    <p>
+      I am currently the CTO at <a href="http://www.interlincx.com">Interlincx</a>. I have worked and led teams at Disney Interactive Media Group, DigiSynd, and AT&amp;T Interactive.
+    </p>
+
+    <p>
+      If you're interested in JavaScript and in LA you should come to <a href="http://js.la">JS.LA</a>. If you're not in LA, you can see <a href="https://vimeo.com/jsla/videos">our previous talks on Vimeo.</a>
+    </p>
+
+    <p>
+      Once upon a time, my friends and I founded a cool company called Syyn Labs. We've since moved onto other things, but I wanted to continue the spirit of that collective. Once a month, I host a gathering of hackers, makers, artists, and inventors to share their work and inspire each other: <a href="http://spec.la">Spec.LA</a>. If it's your first time, you have to demo.
+    </p>
+
+    <p>
+      A portfolio of my interactive artwork, and related tutorials, are at <a href="http://thhis.com">thhis.com</a> and <a href="http://dry.ly">Dry.ly</a>.  
+    </p>
+
+  </div>
 
   <div class="projects">
     <ul>
@@ -95,9 +135,22 @@
     </ul>
   </div>
 
+  <div class="separator">. . .</div>
+
   <div class="avatar">
     <img src="avatar.png">
   </div>
+
+  <script>
+    var about = document.querySelector('.about');
+    document.body.removeChild(about)
+    document.body.appendChild(about)
+    about.style.display = 'block'
+
+    var margin = (window.innerHeight - about.offsetTop)
+    if (margin > 0) about.style.marginTop = margin + 'px'
+    
+  </script>
 
   <script type="text/javascript">
     var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
