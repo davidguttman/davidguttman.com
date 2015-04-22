@@ -1,0 +1,76 @@
+html {
+  padding: 1rem;
+}
+
+body {
+  font-family: 'Vollkorn', Georgia, Times, serif;
+  background-color: #f5f5f5;
+  text-align: center;
+}
+
+h1, h2, .social {
+  font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #111;
+  text-decoration: underline;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.about a {
+  color: #36a;
+}
+
+.projects {
+  font-size: 1.5rem;
+}
+
+@media screen and (min-width: 35.5em) {
+
+  h1 {
+    font-size: 500%;
+    margin-bottom: -45px;
+  }
+
+  h2 {
+    font-size: 300%;
+  }
+
+  .projects {
+    font-size: 250%;
+  }
+
+  .social {
+    font-size: 200%
+  }
+
+  .avatar {
+    position: fixed;
+    bottom: -10px;
+    left: 10px;
+    z-index: -1;
+  }
+
+  .about {
+    display: none;
+    width: 600px;
+    padding: 20px;
+    margin: 0 auto;
+    background: rgba(255,255,255,0.5);
+  }
+
+  .separator {
+    font-size: 600%;
+  }
+
+}
