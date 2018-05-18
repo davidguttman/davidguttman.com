@@ -35,7 +35,7 @@ Seed.prototype.draw = function () {
   } else {
     if (this.shouldSplit()) { this.split() }
 
-    this.c.ctx.strokeStyle = `rgba(0,0,0,${this.opacity})`
+    this.c.ctx.strokeStyle = `rgba(255,255,255,${this.opacity})`
 
     var [lastX, lastY] = Array.from([this.x, this.y])
 
