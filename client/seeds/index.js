@@ -3,7 +3,7 @@ var Seed = require('./seed')
 
 var raf = window.requestAnimationFrame
 
-module.exports = function (ctx, canvas) {
+module.exports = function(ctx, canvas) {
   var seed
   var c = new CanvasHelper(canvas)
 
@@ -16,20 +16,19 @@ module.exports = function (ctx, canvas) {
 
   var nSeeds = 140
 
-  for (var i = 0, end = nSeeds, asc = end >= 0; asc ? i <= end : i >= end; asc ? i++ : i--) {
-    var j = (i * (Math.PI * 2)) / nSeeds
-    var x = (w / 2) + (((Math.cos(j)) * w) / 4)
-    var y = (h / 2) + (((Math.sin(j)) * h) / 4)
-    xOff = xOff + (j / 200)
-    yOff = (xOff + 1) + (j / 200)
+  for (var i = 0; i < nSeeds; i++) {
+    var j = i * (Math.PI * 2) / nSeeds
+    var x = w / 2 + Math.cos(j) * w / 4
+    var y = h / 2 + Math.sin(j) * h / 4
+    xOff = xOff + j / 200
+    yOff = xOff + 1 + j / 200
 
     seed = new Seed(c, {
       x: x,
       y: y,
       xOff: xOff,
       yOff: yOff
-    }
-    )
+    })
 
     var seed2 = new Seed(c, {
       x: x,
@@ -37,14 +36,13 @@ module.exports = function (ctx, canvas) {
       xOff: xOff,
       yOff: yOff,
       reversed: true
-    }
-    )
+    })
 
     seeds.push(seed)
     seeds.push(seed2)
   }
 
-  function draw () {
+  function draw() {
     if (!canvas.parentNode) return
 
     raf(draw)
@@ -56,5 +54,4 @@ module.exports = function (ctx, canvas) {
   }
 
   draw()
-
 }
