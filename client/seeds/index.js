@@ -1,6 +1,8 @@
 var CanvasHelper = require('../canvas')
 var Seed = require('./seed')
 
+var raf = window.requestAnimationFrame
+
 module.exports = function (ctx, canvas) {
   var seed
   var c = new CanvasHelper(canvas)
@@ -42,14 +44,17 @@ module.exports = function (ctx, canvas) {
     seeds.push(seed2)
   }
 
-  return setInterval(function () {
-    return ((() => {
-      var result = []
-      for (seed of Array.from(seeds)) {
-        result.push(seed.draw())
-      }
-      return result
-    })())
+  function draw () {
+    if (!canvas.parentNode) return
+
+    raf(draw)
+    var result = []
+    for (seed of Array.from(seeds)) {
+      result.push(seed.draw())
+    }
+    return result
   }
-  , 1000 / 10)
+
+  draw()
+
 }
