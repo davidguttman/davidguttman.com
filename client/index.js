@@ -1,22 +1,24 @@
 var h = require('hyperscript')
+var fit = require('canvas-fit')
 var fader = require('dom-fader')
 var seeds = require('./seeds')
 
 var lastCanvas = null
 
-var startCanvas = function () {
-  var canvasq = h('canvas', { style: {
+window.addEventListener('resize', fitCanvas, false)
+
+canvasLoop()
+
+function startCanvas () {
+  var canvas = h('canvas', { style: {
     position: 'fixed',
     top: '0px',
     left: '0px',
     'z-index': '-2'
   } })
-  document.body.appendChild(canvasq)
+  document.body.appendChild(canvas)
 
-  var canvas = canvasq
-
-  canvas.width = window.innerWidth
-  canvas.height = window.innerHeight
+  fit(canvas, document.body, window.devicePixelRatio)
 
   var ctx = canvas.getContext('2d')
 
@@ -24,7 +26,7 @@ var startCanvas = function () {
   return canvas
 }
 
-var canvasLoop = function () {
+function canvasLoop () {
   var c
   if (c = lastCanvas) {
     (function (c) {
@@ -40,4 +42,6 @@ var canvasLoop = function () {
   return setTimeout(canvasLoop, interval)
 }
 
-canvasLoop()
+function fitCanvas () {
+  if (lastCanvas) fit(lastCanvas, document.body, window.devicePixelRatio)
+}
