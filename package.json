@@ -19,6 +19,11 @@
   "homepage": "https://github.com/davidguttman/davidguttman.com",
   "devDependencies": {
     "budo": "^11.2.1",
-    "surge": "^0.9.0"
+    "surge": "^0.20.1"
+  },
+  "dependencies": {
+    "dom-fader": "^1.2.1",
+    "hyperscript": "^2.0.2",
+    "simplex-noise": "^2.4.0"
   }
 }
