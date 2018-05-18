@@ -4,21 +4,29 @@ html {
 
 body {
   font-family: 'Vollkorn', Georgia, Times, serif;
-  background-color: #f5f5f5;
+  /* background-color: #f5f5f5; */
   text-align: center;
+  background-color: #0cbaba;
+  color: rgba(255,255,255,0.7);
+  background-image: linear-gradient(315deg, #0cbaba 0%, #380036 74%);
 }
 
 h1, h2, .social {
   font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
 }
 
+h2 {
+  font-size: 80%;
+  letter-spacing: 0.08em;
+}
+
 a {
-  color: #333;
+  color: #eee;
   text-decoration: none;
 }
 
 a:hover {
-  color: #111;
+  color: #ddd;
   text-decoration: underline;
 }
 
@@ -27,27 +35,42 @@ ul {
   padding: 0;
 }
 
-.about a {
-  color: #36a;
-}
-
 .projects {
   font-size: 1.5rem;
+}
+
+.projects li {
+  margin-bottom: 20px;
+}
+
+.caption {
+  font-size: 25%;
+}
+
+.avatar {
+  display: none;
+}
+
+@media screen and (min-width: 1000px) {
+  .avatar {
+    display: block;
+  }
 }
 
 @media screen and (min-width: 35.5em) {
 
   h1 {
     font-size: 500%;
-    margin-bottom: -45px;
+    margin-bottom: -25px;
   }
 
   h2 {
-    font-size: 300%;
+    font-size: 150%;
   }
 
   .projects {
     font-size: 250%;
+    letter-spacing: 0.05em;
   }
 
   .social {
@@ -62,11 +85,23 @@ ul {
   }
 
   .about {
+    color: rgba(255,255,255,0.8);
     display: none;
     width: 600px;
     padding: 20px;
     margin: 0 auto;
-    background: rgba(255,255,255,0.5);
+    letter-spacing: 0.05em;
+    /* background: rgba(255,255,255,0.5); */
+  }
+
+  .about a {
+    color: #ddd;
+    text-decoration: underline;
+  }
+
+  .about a:hover {
+    color: #eee;
+    text-decoration: none;
   }
 
   .separator {
