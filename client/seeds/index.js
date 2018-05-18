@@ -14,12 +14,14 @@ module.exports = function(ctx, canvas) {
   var w = canvas.width
   var h = canvas.height
 
+  var dMin = w > h ? h : w
+
   var nSeeds = 140
 
   for (var i = 0; i < nSeeds; i++) {
     var j = i * (Math.PI * 2) / nSeeds
-    var x = w / 2 + Math.cos(j) * w / 4
-    var y = h / 2 + Math.sin(j) * h / 4
+    var x = w / 2 + Math.cos(j) * dMin / 4
+    var y = h / 2 + Math.sin(j) * dMin / 4
     xOff = xOff + j / 200
     yOff = xOff + 1 + j / 200
 
