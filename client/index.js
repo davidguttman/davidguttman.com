@@ -27,21 +27,23 @@ function startCanvas () {
 }
 
 function canvasLoop () {
-  var c
-  if (c = lastCanvas) {
-    (function (c) {
-      return c.fadeOut(3000).then(function () {
-        return c.parentNode.removeChild(c)
-      })
-    })(c)
-  }
+  if (lastCanvas) fadeRemove(lastCanvas, 3000)
 
   lastCanvas = startCanvas()
 
-  var interval = 8000 + (window.innerHeight * 8)
+  var {innerHeight, innerWidth} = window
+  var c = innerHeight > innerWidth ? innerWidth : innerHeight
+
+  var interval = 8000 + (c * 8)
   return setTimeout(canvasLoop, interval)
 }
 
 function fitCanvas () {
   if (lastCanvas) fit(lastCanvas, document.body, window.devicePixelRatio)
+}
+
+function fadeRemove (el, time) {
+  el.fadeOut(3000).then(function () {
+    el.parentNode.removeChild(el)
+  })
 }
