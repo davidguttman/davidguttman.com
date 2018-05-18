@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "budo client/index.js -d public --live",
-    "deploy": "surge public"
+    "build": "browserify client/index.js > public/index.js",
+    "deploy": "npm run build && surge public"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,7 @@
   },
   "homepage": "https://github.com/davidguttman/davidguttman.com",
   "devDependencies": {
+    "browserify": "^16.2.2",
     "budo": "^11.2.1",
     "surge": "^0.20.1"
   },
