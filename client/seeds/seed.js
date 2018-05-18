@@ -8,13 +8,14 @@ var Seed = (module.exports = function (c, opts) {
   this.c = c
   this.x = opts.x || 0
   this.y = opts.y || 0
-  this.vel = opts.vel || 10
+  this.vel = opts.vel || 1
   this.velStart = this.vel
-  this.accel = opts.accel || 0.015
+  this.accel = opts.accel || 0.001
   this.theta = opts.vel || 0
   this.xOff = opts.xOff || Math.random(100)
   this.yOff = opts.yOff || Math.random(100)
   this.reversed = opts.reversed || false
+  this.color = opts.color || 0
 
   this.hasSplit = false
   this.minThreshold = 0.50 * this.vel
