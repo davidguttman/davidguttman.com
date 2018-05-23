@@ -1,0 +1,5 @@
+# Redirect domain aliases to primary domain
+https://guttman.io/* https://davidguttman.com/:splat 301!
+
+# Optional: Redirect default Netlify subdomain to primary domain
+https://davidguttman.netlify.com/* https://davidguttman.com/:splat 301!
