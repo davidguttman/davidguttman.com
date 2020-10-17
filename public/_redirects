@@ -4,4 +4,4 @@ https://guttman.io/* https://davidguttman.com/:splat 301!
 # Optional: Redirect default Netlify subdomain to primary domain
 https://davidguttman.netlify.com/* https://davidguttman.com/:splat 301!
 
-/social https://us02web.zoom.us/j/127109020
+/social https://us02web.zoom.us/j/127109020?pwd=RzYvRkV3MzBlM3gvSFJLWndiUWhrdz09
